@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yes_no_app/presentation/widgets/chat/my_message_bubble.dart';
 
 class ChatScreen extends StatelessWidget {
   const ChatScreen({super.key});
@@ -8,7 +9,7 @@ class ChatScreen extends StatelessWidget {
     return  Scaffold(
       appBar: AppBar(
         leading: const Padding(
-          padding:  EdgeInsets.all(3.0),
+          padding:  EdgeInsets.only(left: 5.0, bottom: 6.0), 
           child:  CircleAvatar(
             backgroundImage: NetworkImage('https://i.pinimg.com/474x/65/52/8e/65528ef2665f5f8fbc2cd0c5c88a59d1.jpg'),
           ),
@@ -32,7 +33,7 @@ class _ChatView extends StatelessWidget {
             Expanded(child: ListView.builder(
               itemCount: 100,
               itemBuilder: (context, index) {
-                return Text('Indice: $index');
+                return const MyMessageBubble();
               },
             )),
             const  Text('Mundo')

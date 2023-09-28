@@ -36,6 +36,7 @@ class MessageFieldBox extends StatelessWidget {
     );
 
     return TextFormField(
+      
       onTapOutside: (event) {
         // cuando yo haga click afuera este input, se removera el focus
         focusNode.unfocus();

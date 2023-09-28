@@ -40,6 +40,7 @@ class _ChatView extends StatelessWidget {
         child: Column(
           children: [
             Expanded(child: ListView.builder(
+              controller: chatProvider.chatScrollController,
               itemCount: chatProvider.messageList.length, // Aqui vere la cantidad de mensajes que hay
               itemBuilder: (context, index) {
                 final message = chatProvider.messageList[index];
@@ -58,6 +59,7 @@ class _ChatView extends StatelessWidget {
              onValue: chatProvider.sendMessage, 
               
             ),
+            const SizedBox(height: 15)
           ],
         ),
       ),

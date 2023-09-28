@@ -5,45 +5,42 @@ class MessageFieldBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final textController = TextEditingController();
     final focusNode = FocusNode();
 
-
     final outlineInputBorder = UnderlineInputBorder(
-      borderSide: const BorderSide(color: Colors.transparent),
-      borderRadius: BorderRadius.circular(40)
-    );
+        borderSide: const BorderSide(color: Colors.transparent),
+        borderRadius: BorderRadius.circular(40));
 
     final inputDecoration = InputDecoration(
-      hintText: 'End your message with a "??"',
-        enabledBorder: outlineInputBorder,
-        focusedBorder: outlineInputBorder,
-        filled: true,
-        suffixIcon: IconButton( 
-          icon: const Icon(Icons.send_outlined),
-          onPressed: (){
-            final textValue = textController.value.text;
-            print("button: $textValue");
-            textController.clear();
-          },
-        ),
-      );
-      
-      return TextFormField(
-        onTapOutside: (event){ // cuando yo haga click afuera este input, se removera el focus
-          focusNode.unfocus();
-        },
-        focusNode: focusNode,
-        controller: textController,
-        decoration: inputDecoration,
-        onFieldSubmitted: (value) { // onSubmitted cuando presione enter o cuando envie el mensaje
-          print("Submit value $value");
+        hintText: 'End your message with a "??"',
+      enabledBorder: outlineInputBorder,
+      focusedBorder: outlineInputBorder,
+      filled: true,
+      suffixIcon: IconButton(
+        icon: const Icon(Icons.send_outlined),
+        onPressed: () {
+          final textValue = textController.value.text;
+          print("button: $textValue");
           textController.clear();
-          focusNode.requestFocus();
         },
-      );
-    
-    
+      ),
+    );
+
+    return TextFormField(
+      onTapOutside: (event) {
+        // cuando yo haga click afuera este input, se removera el focus
+        focusNode.unfocus();
+      },
+      focusNode: focusNode,
+      controller: textController,
+      decoration: inputDecoration,
+      onFieldSubmitted: (value) {
+        // onSubmitted cuando presione enter o cuando envie el mensaje
+        print("Submit value $value");
+        textController.clear();
+        focusNode.requestFocus();
+      },
+    );
   }
 }

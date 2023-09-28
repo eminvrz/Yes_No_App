@@ -1,5 +1,5 @@
 // Codigo puro de dart
-enum   FromWho{ mine, hers} // enumeracion: mio o de ella
+enum   FromWho{ me, hers} // enumeracion: mio o de ella
 class Message {
   final String text;
   final String? imageUrl;

@@ -8,7 +8,13 @@ class ChatProvider extends ChangeNotifier {
   ];
 
   Future<void> sendMessage(String text) async{
-    // TODO: implementar metodo
+
+    final newMessage = Message(text: text, fromWho: FromWho.me);
+    messageList.add(newMessage);
+
+    // Esto se usa para los providers, para notificar a los demas que de este provider algo cambio
+    // que seria notificado al chatScreen en la linea 34
+    notifyListeners();
   }
 
 

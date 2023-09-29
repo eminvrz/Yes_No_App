@@ -38,7 +38,6 @@ class _ImageBubble extends StatelessWidget {
   Widget build(BuildContext context) {
 
     final size = MediaQuery.of(context).size;
-    print(size);
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(20),
